@@ -5,7 +5,7 @@ defmodule DarkFlows.MixProject do
 
   use Mix.Project
 
-  @version "1.0.1"
+  @version "1.0.2"
 
   @app :dark_flows
   @name "DarkFlows"

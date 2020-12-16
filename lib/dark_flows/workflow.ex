@@ -45,21 +45,12 @@ defmodule DarkFlows.Workflow do
   @doc """
   Helper for extracting a context value via partial application.
   """
-  @spec partial_get_in(atom(), step_fun()) :: (context() -> any())
-  def partial_get_in(selector, fun) when is_atom(selector) and is_function(fun, 1) do
+  @spec within(atom(), step_fun()) :: (context() -> any())
+  def within(selector, fun) when is_atom(selector) and is_function(fun, 1) do
     fn context when is_map(context) ->
       context
       |> Map.get(selector)
       |> fun.()
     end
-  end
-
-  @doc """
-  Helper for extracting a context value via partial application.
-  """
-  @doc since: "1.0.1"
-  @spec within(atom(), step_fun()) :: {:with, (context() -> any())}
-  def within(selector, fun) when is_atom(selector) and is_function(fun, 1) do
-    {:with, partial_get_in(selector, fun)}
   end
 end
