@@ -1,0 +1,55 @@
+# The directory Mix will write compiled artifacts to.
+/_build/
+
+# If you run "mix test --cover", coverage assets end up here.
+/cover/
+
+# The directory Mix downloads your dependencies sources to.
+/deps/
+
+# Where 3rd-party dependencies like ExDoc output generated docs.
+/doc/
+
+# Ignore .fetch files in case you like to edit your project deps locally.
+/.fetch
+
+# If the VM crashes, it generates a dump, let's ignore it too.
+erl_crash.dump
+
+# Also ignore archive artifacts (built via "mix archive.build").
+*.ez
+
+# Ignore package tarball (built via "mix hex.build").
+dark_flows-*.tar
+
+# Since we are building assets from assets/,
+# we ignore priv/static. You may want to comment
+# this depending on your deployment strategy.
+# /priv/static/
+/priv/static/cache_manifest.json
+
+# Hide secrets
+config/prod.secret.exs
+config/*.secret.exs
+
+# Dialyzer
+/priv/plts/*.plt
+/priv/plts/*.plt.hash
+
+# JS Dependencies
+/node_modules/
+/npm-debug.log*
+/yarn-error.log
+
+# IDE
+/.elixir_ls/
+/.vscode/
+*.sublime-workspace
+
+# Misc
+.iex-history
+.DS_Store
+.envrc
+
+# Temporary files for e.g. tests
+/tmp
