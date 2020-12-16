@@ -7,19 +7,22 @@ defmodule DarkFlows.Workflow do
 
   alias DarkFlows.Workflows.Stages.StepOkStage
 
+  @type opts() :: Keyword.t()
   @type context() ::
           map()
           | %{required(atom()) => any()}
           | %{required(String.t()) => any()}
 
-  @type opts() :: Keyword.t()
   @type step_fun() :: (any() -> any())
-  @type result() :: {:ok, context()} | {:error, PipelineError.t()}
   @type step_result() ::
           context()
           | {:error, atom()}
           | {:error, failed_multi()}
           | {:error, any()}
+
+  @type result() ::
+          {:ok, context()}
+          | {:error, PipelineError.t()}
 
   @type failed_multi() :: %{
           failed_operation: atom(),
