@@ -13,7 +13,7 @@ defmodule DarkFlows.MixProject do
   @hexpm_url "http://hexdocs.pm/#{@app}"
   @github_url "https://github.com/#{@github_organization}/#{@app}"
   @maintainers ["sitch"]
-  @description ""
+  @description "Flow based execution based on Opus"
 
   def project do
     [
