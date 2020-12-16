@@ -102,7 +102,7 @@ defmodule DarkFlows.MixProject do
   defp package() do
     [
       maintainers: @maintainers,
-      files: ~w(lib priv .formatter.exs mix.exs README* LICENSE* CHANGELOG*),
+      files: ~w(lib .formatter.exs mix.exs README* LICENSE* CHANGELOG*),
       licenses: ["Apache-2.0"],
       links: %{"GitHub" => @github_url}
     ]
