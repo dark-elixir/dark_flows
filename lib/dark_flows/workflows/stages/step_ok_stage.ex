@@ -2,6 +2,7 @@ defmodule DarkFlows.Workflows.Stages.StepOkStage do
   @moduledoc """
   Adds `:ok` tuple monad handling step to `Opus.Pipeline`.
   """
+  @moduledoc since: "1.0.0"
 
   alias DarkFlows.Workflow
   alias DarkFlows.Workflows.Stages.StepOkStage

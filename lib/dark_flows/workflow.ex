@@ -2,6 +2,7 @@ defmodule DarkFlows.Workflow do
   @moduledoc """
   `DarkFlows.Workflow`
   """
+  @moduledoc since: "1.0.0"
 
   alias Opus.PipelineError
 
@@ -36,6 +37,7 @@ defmodule DarkFlows.Workflow do
     quote location: :keep do
       use Opus.Pipeline
 
+      import DarkFlows.Workflow, only: [within: 2]
       import StepOkStage, only: [step_ok: 1, step_ok: 2]
     end
   end
@@ -50,5 +52,14 @@ defmodule DarkFlows.Workflow do
       |> Map.get(selector)
       |> fun.()
     end
+  end
+
+  @doc """
+  Helper for extracting a context value via partial application.
+  """
+  @doc since: "1.0.1"
+  @spec within(atom(), step_fun()) :: {:with, (context() -> any())}
+  def within(selector, fun) when is_atom(selector) and is_function(fun, 1) do
+    {:with, partial_get_in(selector, fun)}
   end
 end
